@@ -31,7 +31,7 @@ app.listen(port, () => {
 // shows the ejs file in the browser, dynamically, by name (through a for loop in the ejs file) in a list. At http://localhost:3000/pokemon
 app.get('/pokemon', (req, res) => {
   res.render('index.ejs', {
-  pokemon: Pokemon
+  pokemon: Pokemon //this is the variable you are rendering inside the file.
 });
 })
 
@@ -44,11 +44,13 @@ app.get('/pokemon/:id', (req, res) => { //:id is the same as :index. it's whatev
 })
 });
 
-
-
-// Link your index.ejs to your show.ejs
-// inside your index.ejs,
-// for each pokemon, add an <a> tag that will have an href that goes to the route /pokemon/x, where x is the array position of the pokemon in the data array. This should be set dynamically with ejs
-// when you click the link you should go to your show route and the index number corresponding to the pokemon's array position should be displayed
+// Render your individual pokemon in the show view
+// copy/paste your code from your index.ejs into your show.ejs (surely, there must be a better way; are you wondering if there is something in the hungry for more section about this?)
+// change all your html code inside your show.ejs file's <body> so that
+// your h1 tag says "Gotta Catch 'Em All"
+// add an h2 tag that will display the name of the pokemon
+// add an image tag that will display an image of the pokemon
+// add an anchor tag with the text of back, that will take you back to your index.ejs view
+// update the route in the server.js to render the show view with the pokemon data
 // 🔴 The commit message should read:
-// "Commit 8 - added dynamic anchor tags to index.ejs "
+// "Commit 9 - created show views of each pokemon "
