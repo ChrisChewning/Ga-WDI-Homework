@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>Pokemon Show Pages</h1>
-    <h3>Pokemon Name: <%= pokemon.name %></h3>
-    <h3>Pokemon Image: <%=pokemon.img %></h4>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Pokemon App</title>
+  <style type="text/css">
+    body {
+      color: blanchedalmond;
+      background-color: steelblue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Gotta Catch 'Em All! </h1>
+
+
+            <h2><%=pokemon.name %></h2>
+
+            <a href="/pokemon/ >"</a>
+            <img src="<%=pokemon.img%>" > <br>
+            <a href="/pokemon">Back</a>
+          </body>
+
+        </ul>
+
+</body>
+
 </html>
+
+
+<!-- // add an h2 tag that will display the name of the pokemon
+// add an image tag that will display an image of the pokemon
+// add an anchor tag with the text of back, that will take you back to your index.ejs view
+// update the route in the server.js to render the show view with the pokemon data -->

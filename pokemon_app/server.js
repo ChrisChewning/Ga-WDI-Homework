@@ -38,19 +38,17 @@ app.get('/pokemon', (req, res) => {
 
 
 //shows the ejs file in the browser through id. This way you can put pokemon/0. This is why you need req/params.id.
-app.get('/pokemon/:id', (req, res) => { //:id is the same as :index. it's whatever is after the / in your browser.
-  res.render('show.ejs', {
-  pokemon: Pokemon[req.params.id] //has to match up with /:id. could be /:index and req.params.index.
-})
-});
+// app.get('/pokemon/:id', (req, res) => { //:id is the same as :index. it's whatever is after the / in your browser.
+//   res.render('show.ejs', {
+//   pokemon: Pokemon[req.params.id] //has to match up with /:id. could be /:index and req.params.index.
+// })
+// });
 
-// Render your individual pokemon in the show view
-// copy/paste your code from your index.ejs into your show.ejs (surely, there must be a better way; are you wondering if there is something in the hungry for more section about this?)
-// change all your html code inside your show.ejs file's <body> so that
-// your h1 tag says "Gotta Catch 'Em All"
-// add an h2 tag that will display the name of the pokemon
-// add an image tag that will display an image of the pokemon
-// add an anchor tag with the text of back, that will take you back to your index.ejs view
-// update the route in the server.js to render the show view with the pokemon data
-// 🔴 The commit message should read:
-// "Commit 9 - created show views of each pokemon "
+
+// Render your individual pokemon in the show view with a link to get back to the index page. This is commit #9. 'created show views of each pokemon'
+app.get('/pokemon/:id', (req, res) => {
+  res.render('show.ejs', {
+    pokemon: Pokemon[req.params.id]
+    // res.redirect('/pokemon');
+  })
+})
