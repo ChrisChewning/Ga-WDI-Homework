@@ -1,0 +1,27 @@
+  body {
+    color: blanchedalmond;
+    background-color: steelblue;
+  }
+
+a {
+  color: pink;
+  font-size: 24px;
+  font-style: italic;
+}
+
+a:hover {
+  color: steelblue;
+}
+
+li {
+  list-style-type: none;
+  padding: 20px 20px;
+}
+
+.names {
+  text-transform: uppercase;
+
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}

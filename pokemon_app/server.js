@@ -5,6 +5,8 @@ const express = require('express');
 const app = express();
 const Pokemon = require('./models/pokemon');
 
+//this allows us to use css. it is middleware & is part of the express package so we don't have to dl any more npm installs for this.
+app.use(express.static('public'));
 
 const port = 3000;
 app.listen(port, () => {

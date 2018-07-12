@@ -4,24 +4,23 @@
 <head>
   <meta charset="utf-8">
   <title>Pokemon App</title>
-  <style type="text/css">
-    body {
-      color: blanchedalmond;
-      background-color: steelblue;
-    }
-  </style>
+    <link rel="stylesheet" href="./style.css">
+
 </head>
 
 <body>
   <h1> See the Pokemons! </h1>
+
         <ul>
           The names of the Pokemons are, as follows:
+            <div class="names">
           <% for(let i = 0; i < pokemon.length; i++){ %>
             <li> <a href="/pokemon/<%=i%>"</a></li>
               <%= pokemon[i].name %>
                 <% } %>
         </ul>
-        <script src="app.js" type="text/javascript"></script>
+      </div>
+        <!-- <script src="app.js" type="text/javascript"></script> -->
 </body>
 
 </html>
