@@ -10,11 +10,6 @@ const Vampires = require('./models/vampires');
 mongoose.connect('mongodb://localhost:27017/vampire');
 
 
-// Using the create method, create 4 new vampires with any qualities that you like two should be male and two should be female.
-// 🔴 The commit message should read:
-// "Commit 2 - added data into vampire collection"
-
-
 //-------------------------  CHECK FOR CONNECTION  -----------------------------
 
 //ERROR CHECK db.on is the same format as app.listen
@@ -30,7 +25,7 @@ db.on('connected', () => {
   console.log('mongoose is connected to mongodb');
 })
 
-//-------------------------  CHECK FOR CONNECTION  -----------------------------
+//-------------------------  CREATE METHOD  -----------------------------
 
 
     Vampire.create({
