@@ -116,6 +116,27 @@ Vampire.find({victims {gt: 150, lt: 500}}, (err, vampire) => {
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
 
+// have a title property
+// do not have a victims property
+// have a title AND no victims
+// have victims AND the victims they have are greater than 1000
+//
+Vampire.find({$type: title} => {
+  console.log(vampire);
+})
+
+Vampire.find( { $nin: victims} => {
+  console.log(vampire);
+})
+
+Vampire.find({ $type: title, $and victims: [0]} => {
+  console.log(vampire);
+})
+
+Vampire.find( { $type: victims, $and victims {gt: 1000} } => {
+  console.log(vampire);
+}
+)
 /////////////////////////////////////////////////
 // ### Select with OR
 
