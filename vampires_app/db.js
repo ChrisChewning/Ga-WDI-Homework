@@ -1,16 +1,34 @@
 // 1. Require your node modules
 const mongoose = require('mongoose');
-const database = mongoose.connection;
+const db = mongoose.connection;
 //this is so you can refer to a constant that refers to the model. It's a shortcut in a way so you don't have to type require(./vampires) over & over again.
-
 
 
 // 2. Require your model (and possibly your extra data source);
 const Vampire = require('./models/vampire.js')
+//could I put their model in populateVampires.js or a diff. file?
 // 3. Connect your database and collection name
-const Article = require('./db.js');
-// 4. Open your mongoose connection
+const Article = require('./populateVampires.js');
+// 4A. Open your mongoose connection
 mongoose.connect('mongodb://localhost:27017/vampire');
+// 4B. my notes: check for connectino.
+
+//ERROR CHECK db.on is the same format as app.listen
+db.on('error', (err) => {
+  //error message of a a failed connection
+  //error is a reserved keyword. If there is an error when we attempt to connect, this will log out.
+  console.log(err, ' this is the error message')
+})
+
+//CONNECTED CHECK
+db.on('connected', () => {
+  //connection is a reserved keyword
+  console.log('mongoose is connected to mongodb');
+})
+
+
+
+
 /////////////////////////////////////////////////
 //Write your answers to add, query, update, remove, and Hungry for More below.
 
@@ -67,6 +85,8 @@ victims: 1238
 })
 /////////////////////////////////////////////////
 // ## QUERYING
+//For commit 3: https://docs.mongodb.com/manual/reference/operator/query/
+
 /////////////////////////////////////////////////
 // ### Select by comparison
 // Find all the vampires that that are females

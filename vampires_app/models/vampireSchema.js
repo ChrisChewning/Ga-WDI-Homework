@@ -2,9 +2,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 //this is so you can refer to a constant that refers to the model. It's a shortcut in a way so you don't have to type require(./vampires) over & over again.
-const Vampire = require('./models/vampire.js')
-
-
+// const Vampire = require('./models/vampire.js')
 
 
 const vampireSchema = new Schema([{
