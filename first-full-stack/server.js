@@ -6,5 +6,5 @@ require('./db/db');
 
 
 app.listen(port, () => {
-  console.log('lisetning on port 3000');
+  console.log('listening on port 3000');
 })
