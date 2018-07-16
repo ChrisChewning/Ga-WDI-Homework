@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const doggoSchema = mongoose.Schema({
   name: String,
   breed: String,
-  isGoodBoy: Boolean,
+  isGoodBoy: Boolean
 });
 
 

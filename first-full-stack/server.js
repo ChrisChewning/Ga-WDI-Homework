@@ -63,7 +63,7 @@ app.get('/home/:id/edit', (req, res) => {
 //---------------------- UPDATE ROUTE -------------------------
 
 app.put('/:id', (req, res) => {
-  Doggo.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updateDog => {
+  Doggo.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updateDog) => {
     if(err){
             res.send(err);
           } else {
@@ -71,9 +71,9 @@ app.put('/:id', (req, res) => {
         console.log(updateDog, 'check our model');
     res.redirect('/home');
   }
-  })
-)
 })
+})
+
 
 
 
