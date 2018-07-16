@@ -6,5 +6,20 @@
   </head>
   <body>
     <h1>Edit Page</h1>
-  </body>
-</html>
+
+
+<form method="POST" action="/<%=doggo.id%>?_method=PUT">
+
+      Name: <input type="text" name="name" value="<%=doggo.name%>"/>
+      Breed: <input type="text" name="breed" value="<%=doggo.breed%>"/>
+      Is Good Dog?:
+      <input type="checkbox" name="isGoodBoy"
+
+      <% if (doggo.isGoodBoy === true) { %>
+        checked
+      <% } %>
+      >
+      <br>
+      <input type="submit" value="Submit Change"/>
+    </form>
+      </body>
