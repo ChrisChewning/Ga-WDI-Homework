@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page For Doggos</title>
+  </head>
+  <body>
+    <h1>Dog Time!!!</h1>
+
+<ul>
+      <% for(let i = 0; i < doggo.length; i++) {%>
+          <li>
+        <a href="/<%=doggo[i].id%>">
+          <%=doggo[i].name; %></a> is a
+          <%=doggo[i].breed; %>.
+          <% if(doggo[i].isGoodBoy === true){ %>
+            It is good boy!
+           %< } else { %>
+          It is not good boy.
+        <% } %>
+<br>
+        <form method = "POST" action="/<%=doggo[i].id%>?_method=DELETE">
+          <input type="submit" value="DELETE" />
+
+
+
+
+<a href="/dog/<%=doggo[i].id%>/edit">Edit</a>
+</li>
+<% } %>
+</ul>
+</form>
+
+<a href="/dog/new">Create a New Dog Profile</a>
+
+  </body>
+</html>

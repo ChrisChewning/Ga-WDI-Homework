@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect = ('mongodb://localhost/doggos')
-
+mongoose.connect('mongodb://localhost/doggo')
 
 
 mongoose.connection.on('connected', () => {
