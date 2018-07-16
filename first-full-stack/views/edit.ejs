@@ -7,18 +7,20 @@
   <body>
     <h1>Edit Page</h1>
 
-
 <form method="POST" action="/<%=doggo.id%>?_method=PUT">
 
       Name: <input type="text" name="name" value="<%=doggo.name%>"/>
       Breed: <input type="text" name="breed" value="<%=doggo.breed%>"/>
+      Image URL: <input type="url" name="image" value="<%=doggo.image%>"/>
+
+
       Is Good Dog?:
       <input type="checkbox" name="isGoodBoy"
 
-      <% if (doggo.isGoodBoy === true) { %>
+      <% if(doggo.isGoodBoy === true){%>
         checked
       <% } %>
-      >
+      />
       <br>
       <input type="submit" value="Submit Change"/>
     </form>

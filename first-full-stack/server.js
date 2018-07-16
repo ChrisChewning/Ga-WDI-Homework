@@ -6,7 +6,7 @@ const Doggo = require('./models/goodDog')
 
 require('./db/db');
 
-
+app.use(express.static('public'));
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
@@ -39,13 +39,6 @@ app.get('/home/new', (req, res) => {
 
 
 
-//---------------------- POST Route creates a request -------------------------
-
-app.post('/home', (req, res) => {
-  Doggo.create(req.body, (err, createDog) => {
-  res.redirect('/home')
-  })
-})
 
 
 //---------------------- EDIT ROUTE -------------------------
@@ -59,10 +52,38 @@ app.get('/home/:id/edit', (req, res) => {
 });
 
 
+//---------------------- POST Route creates a request -------------------------
+
+app.post('/home', (req, res) => {
+  //read the on button as true or false.
+  if (req.body.isGoodBoy === 'on'){
+    req.body.isGoodBoy = true
+  } else {
+    req.body.isGoodBoy = false
+  }
+  //Doggo is your database. you are targeting your database.
+  Doggo.create(req.body, (err, createDog) => {
+    if (err) {
+      res.send(err);
+    } else {
+  res.redirect('/home')
+}
+  })
+})
+
+
 
 //---------------------- UPDATE ROUTE -------------------------
 
 app.put('/:id', (req, res) => {
+
+//checkbox gives us the value on.
+  if(req.body.isGoodBoy === 'on') {
+    req.body.isGoodBoy = true
+  } else {
+    req.body.isGoodBoy = false
+  }
+
   Doggo.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updateDog) => {
     if(err){
             res.send(err);
@@ -77,20 +98,8 @@ app.put('/:id', (req, res) => {
 
 
 
-//---------------------- DELETE ROUTE -------------------------
-
-app.delete('/:id', (req, res) => {
-  Doggo.findByIdAndDelete(req.params.id, (err, deleteDog) => {
-    res.redirect('/home')
-    doggo: deleteDog
-  })
-})
-
-
-
 
 //---------------------- SHOW ROUTE -------------------------
-
 
 // Show Route
 app.get('/:id', (req, res) => {
@@ -108,12 +117,21 @@ app.get('/:id', (req, res) => {
 
       res.render('show.ejs', {
 
-        //think this part may be wrong.
-      doggos: databaseArray// This creates a "tvshow" variable in the show page
+      doggos: databaseArray// This creates a "doggos" variable in the show page
     })
   }
   })
 });
+
+
+//---------------------- DELETE ROUTE -------------------------
+
+app.delete('/:id', (req, res) => {
+  Doggo.findByIdAndDelete(req.params.id, (err, deleteDog) => {
+    res.redirect('/home')
+    doggo: deleteDog
+  })
+})
 
 
 

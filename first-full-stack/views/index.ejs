@@ -6,16 +6,17 @@
   </head>
   <body>
     <h1>Dog Time!!!</h1>
-
+      <!-- CSS Grid photos could go here. -->
 <ul>
       <% for(let i = 0; i < doggo.length; i++) {%>
           <li>
         <a href="/<%=doggo[i].id%>">
-          <%=doggo[i].name; %></a> is a
+          <%=doggo[i].name; %>
+        </a> is a
           <%=doggo[i].breed; %>.
-          <% if(doggo[i].isGoodBoy === true){ %>
+          <% if(doggo[i].isGoodBoy === true){%>
             It is good boy!
-           %< } else { %>
+           <% } else { %>
           It is not good boy.
         <% } %>
 <a href="/home/<%=doggo[i].id%>/edit">Edit</a>
@@ -24,7 +25,6 @@
 <br>
         <form method = "POST" action="/<%=doggo[i].id%>?_method=DELETE">
           <input type="submit" value="DELETE" />
-
 
 
 </li>
