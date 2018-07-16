@@ -30,9 +30,7 @@ app.get('/home', (req, res) => {
 })
 
 
-
-
-//---------------------- CREATE PAGE -------------------------
+//---------------------- NEW ROUTE -------------------------
 
 app.get('/new', (req, res) => {
   // res.send('this is for new'); for testing
@@ -50,10 +48,6 @@ app.post('/', (req, res) => {
 })
 
 
-
-
-
-
 //---------------------- EDIT ROUTE -------------------------
 
 app.get('/home/:id/edit', (req, res) => {
@@ -63,7 +57,6 @@ app.get('/home/:id/edit', (req, res) => {
     });
   });
 });
-
 
 
 //---------------------- NEW ROUTE -------------------------

@@ -18,14 +18,15 @@
            %< } else { %>
           It is not good boy.
         <% } %>
+<a href="/home/<%=doggo[i].id%>/edit">Edit</a>
+
+
 <br>
         <form method = "POST" action="/<%=doggo[i].id%>?_method=DELETE">
           <input type="submit" value="DELETE" />
 
 
 
-
-<a href="/dog/<%=doggo[i].id%>/edit">Edit</a>
 </li>
 <% } %>
 </ul>
